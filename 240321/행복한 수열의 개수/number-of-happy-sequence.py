@@ -12,6 +12,9 @@ else:
         for j in range(n-1):
             if board[i][j] == board[i][j+1]:
                 cnt += 1
+            else:
+                cnt = 1
+
             if cnt == m:
                 answer += 1
                 break
@@ -21,6 +24,9 @@ else:
         for i in range(n-1):
             if board[i][j] == board[i+1][j]:
                 cnt += 1
+            else:
+                cnt = 1
+                
             if cnt == m:
                 answer += 1
                 break
