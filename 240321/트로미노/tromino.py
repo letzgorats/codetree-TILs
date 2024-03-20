@@ -5,15 +5,15 @@ board = [list(map(int,input().split())) for _ in range(n)]
 
 def case1(i,j):
 
-    return board[i][j] + board[i-1][j] + board[i][j+1]
+    return board[i][j] + board[i+1][j] + board[i][j+1]
 
 def case2(i,j):
 
-    return board[i][j] + board[i+1][j] + board[i][j+1]
+    return board[i][j] + board[i+1][j+1] + board[i][j+1]
 
 def case3(i,j):
 
-    return board[i][j] + board[i+1][j] + board[i][j-1]
+    return board[i+1][j+1] + board[i+1][j] + board[i][j+1]
 
 
 def case4(i,j):
@@ -30,13 +30,13 @@ answer = 0
 for i in range(n):
     for j in range(m):
 
-        if 0<= i-1 < n and 0<= j+1 < m:
+        if 0<= i+1 < n and 0<= j+1 < m:
             answer = max(answer,case1(i,j))
 
         if 0<= i+1 < n and 0<= j+1 < m:
             answer = max(answer,case2(i,j))
 
-        if 0<= i+1 < n and 0<= j-1 < m:
+        if 0<= i+1 < n and 0<= j+1 < m:
             answer = max(answer,case3(i,j))
         
         if 0<= j+1 < m and 0<= j+2 < m:
