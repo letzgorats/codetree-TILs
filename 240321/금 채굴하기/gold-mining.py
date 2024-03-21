@@ -5,13 +5,13 @@ board = [list(map(int,input().split())) for _ in range(n)]
 def dig_gold(row,col):
     k = 1
     tmp = 0 
+    # print(row,col)
     while True:
         cost = k * k + (k+1) * (k+1)
         gold = 0 
         for i in range(-k,k+1):
-            # print(row,col)
             for j in range(-k,k+1):
-                if abs(i+j) <= k:
+                if abs(i)+abs(j) <= k:
                     if 0<= row+i < n and 0<= col+j < n:  
                         if board[row+i][col+j] == 1:
                             gold += 1
@@ -20,8 +20,7 @@ def dig_gold(row,col):
         # print(gold)
         if cost <= gold * m:
             tmp = max(tmp,gold)
-        # print("tmp=",tmp)
-        if k > n :
+        if k > n+1 :
             break
         k += 1
 
