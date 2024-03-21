@@ -3,7 +3,7 @@ n, m = map(int,input().split())
 board = [list(map(int,input().split())) for _ in range(n)]
 
 def dig_gold(row,col):
-    k = 1
+    k = 0
     tmp = 0 
     # print(row,col)
     while True:
@@ -27,12 +27,6 @@ def dig_gold(row,col):
     return tmp
 
 answer = 0
-for i in range(n):
-    for j in range(n):
-        if board[i][j] == 1:
-            answer = 1
-            break
-
 for i in range(n):
     for j in range(n):
         answer = max(answer,dig_gold(i,j))
