@@ -42,7 +42,10 @@ def dig_gold(row,col):
 
     return tmp
 
-answer = 1
+if 1 in board:
+    answer = 1
+else:
+    answer = 0 
 
 for i in range(n):
     for j in range(n):
