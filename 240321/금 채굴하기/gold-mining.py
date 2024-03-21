@@ -42,7 +42,7 @@ def dig_gold(row,col):
 
     return tmp
 
-answer = 0
+answer = 1
 
 for i in range(n):
     for j in range(n):
