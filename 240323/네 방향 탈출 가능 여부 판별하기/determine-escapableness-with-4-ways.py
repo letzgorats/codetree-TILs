@@ -13,6 +13,10 @@ def bfs(r,c):
     while dq:
 
         r,c = dq.popleft()
+        if (r,c) == (n-1,m-1):
+            print(1)
+            return
+        
         for d in range(4):
             nr = r + dr[d]
             nc = c + dc[d]
@@ -20,15 +24,8 @@ def bfs(r,c):
                 if not visited[nr][nc]:
                     dq.append((nr,nc))
                     visited[nr][nc] = True
-        
-    if (r,c) == (n-1,m-1):
-        print(1)
-    else:
-        print(0)
-
-
-
-
+    
+    print(0)
 
 n,m = map(int,input().split())
 
