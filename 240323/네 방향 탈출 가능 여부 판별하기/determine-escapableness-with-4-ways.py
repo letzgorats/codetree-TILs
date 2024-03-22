@@ -9,7 +9,7 @@ def bfs(r,c):
     dq.append((r,c))
 
     visited = [[False] * m for _ in range(n)]
-
+    visited[r][c] = True
     while dq:
 
         r,c = dq.popleft()
