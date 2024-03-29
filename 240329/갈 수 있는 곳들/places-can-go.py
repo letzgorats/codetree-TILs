@@ -15,12 +15,12 @@ for _ in range(k):
 dr = [-1,1,0,0]
 dc = [0,0,-1,1]
 answer = 0
+visited = [[False] * n for _ in range(n)]
+
 for r,c in start_point:
-    visited = [[False] * n for _ in range(n)]
     queue = deque([(r,c)])
     visited[r][c] = True
 
-    cnt = 1
     while queue:
 
         r,c = queue.popleft()
@@ -31,8 +31,11 @@ for r,c in start_point:
             if 0 <= nr < n and 0 <= nc < n and not visited[nr][nc] and board[nr][nc] == 0:
                 visited[nr][nc] = True
                 queue.append((nr,nc))
-                cnt += 1
+                
+for i in range(n):
+    for j in range(n):
+        if visited[i][j] == True:
+            answer += 1
     
-    answer += cnt
 
 print(answer)
