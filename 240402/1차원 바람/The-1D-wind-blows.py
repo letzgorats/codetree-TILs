@@ -37,9 +37,9 @@ while wind:
     r = r-1
     tmpr = r
     tmpd = d
-    
-    move(d,r)
 
+    move(d,r)
+    
     while 0<= r-1:
 
         for c in range(m):
@@ -47,6 +47,8 @@ while wind:
                 d = (-d)
                 move(d,r-1)
                 break
+        else:
+            break
         r -= 1
 
     r = tmpr
@@ -59,6 +61,8 @@ while wind:
                 d = (-d)
                 move(d,r+1)
                 break
+        else:
+            break
         r += 1
 
 
@@ -66,3 +70,11 @@ for i in range(n):
     for j in range(m):
         print(board[i][j],end=" ")
     print()
+
+
+
+# 5 0 
+# 5 3 
+# 2 4 
+# 1 2 
+# 4 0
