@@ -24,4 +24,7 @@ for v in visited:
     if v:
         cnt += 1
 
-print(cnt-1)
+if cnt == 0:
+    print(cnt)
+else:
+    print(cnt-1)
