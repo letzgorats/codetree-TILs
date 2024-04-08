@@ -17,12 +17,15 @@ def dfs(r,c):
     answer[r][c] = 2
     visited[r][c] = True
 
+    if answer[-1][-1] == 2:
+        return 1
+
     for d in range(2):
         nr = r + dr[d]
         nc = c + dc[d]
-        if 0 <= nr < n and 0<= nc < m and not visited[nr][nc] and answer[nr][nc] != 1:
+        if 0 <= nr < n and 0<= nc < m and not visited[nr][nc] and answer[nr][nc] == 1:
             dfs(nr,nc) 
-            
+            answer[r][c] = 1
 
 
 dr = [1,0]
