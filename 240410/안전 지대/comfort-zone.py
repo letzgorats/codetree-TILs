@@ -22,7 +22,7 @@ area = 0
 max_area = 0
 min_k = 100
 
-for k in range(min(map(min, board)), max(map(max, board)) + 1):
+for k in range(1, max(map(max, board)) + 1):
 
     dr = [-1,1,0,0]
     dc = [0,0,-1,1]
