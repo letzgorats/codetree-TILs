@@ -40,7 +40,7 @@ for k in range(min(map(min, board)), max(map(max, board)) + 1):
         max_area = area
         min_k = k
     elif area == max_area:
-        # min_k = min(min_k,k)
+        min_k = min(min_k,k)
         break
 
 print(min_k,max_area)
