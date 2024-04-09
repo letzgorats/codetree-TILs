@@ -1,3 +1,4 @@
+import copy
 n, m = map(int,input().split())
 
 board = []
@@ -12,16 +13,15 @@ def dfs(r,c):
     for d in range(4):
         nr = r + dr[d]
         nc = c + dc[d]
-        if 0 <= nr < n and 0 <= nc < m and board[nr][nc] > k and not visited[nr][nc]:
+        if 0 <= nr < n and 0 <= nc < m and board[nr][nc] > min_height and not visited[nr][nc]:
             dfs(nr,nc)
 
 
-k = 1
 area = 0
 max_area = 0
-pre = max_area
+min_height, max_height = min(map(min, board)), max(map(max, board))
 
-while area >= max_area:
+while min_height <= max_height :
 
     dr = [-1,1,0,0]
     dc = [0,0,-1,1]
@@ -31,15 +31,15 @@ while area >= max_area:
     
     for i in range(n):
         for j in range(m):
-            if board[i][j] > k and not visited[i][j]:
+            if board[i][j] > min_height and not visited[i][j]:
                 dfs(i,j)
                 area += 1
 
-    # print(area)
-    max_area = max(area,max_area)
-    if area < max_area:
+    
+    if max_area < area:
+        max_area = max(area,max_area)
+    else:
         break
-        
-    k += 1
+    min_height += 1
 
-print(k-1,max_area)
+print(min_height-1,max_area)
