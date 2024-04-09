@@ -3,7 +3,9 @@ k, n = map(int,input().split())
 def backtracking(path, last, count, n, k):
 
     if len(path) == n:
-        print(''.join(map(str,path)))
+        for p in path:
+            print(p,end=" ")
+        print()
         return 
     
     for next_num in range(1,k+1):
